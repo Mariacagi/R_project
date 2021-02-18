@@ -12,7 +12,7 @@
 #' @author María
 
 
-# Función para general los outputs
+# Función para guardar los outputs
 generarOutput <- function(output, config, path){
   
   #Ponemos una marca de tiemnpo para saber cuando se ha guardado el modelo,
@@ -21,6 +21,7 @@ generarOutput <- function(output, config, path){
   
   
   # Esta parte guarda la predicción el la carpeta output en modo csv
+    # Coge de la lista output del archivo generarModelo.R el primer elemento, es decir, predicción
   nombreArchivo <- paste0(path, "output/prediccion.csv")
   
   tryCatch(expr = {
@@ -35,6 +36,7 @@ generarOutput <- function(output, config, path){
   
   
   # Esta parte guarda el modelo el la carpeta output en modo rds
+    # Coge de la lista output del archivo generarModelo.R el segundo elemento, es decir, modelo
   nombreArchivo <- paste0(path, "output/modelo.rds")
   
   tryCatch(expr = {
