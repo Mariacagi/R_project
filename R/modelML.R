@@ -1,14 +1,10 @@
-#' modelML.R
+#' Title
 #'
-#' @param datos 
+#' @param df 
 #' @param config 
 #'
-#' @import xgboost
-#' @import caret
-#' @param datosSplit 
-#' @description blablabla
-#'
-#' @param config 
+#' @return
+#' @export
 #'
 #' @examples
 generateModel <- function(df, config){
@@ -40,31 +36,10 @@ generateModel <- function(df, config){
 }
 
 
-#' Title
-#'
-#' @param model 
-#' @param X 
-#'
-#' @return
-#' @export
-#'
-#' @examples
-predictValues <- function(model, X){
-  xgbX <- xgb.DMatrix(data=X)
+
+predictValue <- function(df, model, config){
+  toPred <- data.matrix(dfTrain[strtoi(config$country), -grep(config$target, colnames(df))])
   
   yPred <- predict(model, xgbX)
   return(yPred)
 }
-
-df <- MASS::Boston
-model <- generateModel(df, df[[config$target]], config$target)
-
-prediction(model, xTest)
-
-df$config$target
-
-config$target = "columna"
-
-
-clumna <- config[$target
-df$clumna][]
