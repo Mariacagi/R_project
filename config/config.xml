@@ -1,26 +1,12 @@
 <config>
   <input>
-    <csvs>
-      <csv1>PIB.csv</csv2>
-      <csv2>population.csv</csv3>
-      <csv3>babies_per_woman.csv</csv4>
-      <csv4>murdered_women.csv</csv4>
-    </csvs>
+    <csvs>PIB.csv,population.csv,babies_per_woman.csv,murdered_women.csv</csvs>
     <sep>,</sep>
   </input>
-  <countries>
-    <count1>Belgium</count1>
-    <count2>Nigeria</count2>
-    <count3>Ireland</count3>
-    <count4>Australia</count4>
-  </countries>
-  <years>
-    <start>1970</start>
-    <end>2018</end>
-  </years>
+  <countries>Belgium,Nigeria,Ireland,Australia</countries>
   <target>murdered_women</target>
   <to_predict>
     <country>Australia</country>
-    <year>2005</yeart>
+    <year>2005</year>
   </to_predict>
 </config>
