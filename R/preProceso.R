@@ -17,18 +17,22 @@ preproceso <- function(data, config){
   print('reshape')
   for (i in 1:length(data)){
     #data[[i]] <- reshape(data[[i]], idvar='country', varying=-1, direction="long", sep="")
-    data[[i]] <- setNames(as.data.frame.table(as.matrix(data[[i]][-1])),c("Country","Year",config$input$csvs[i]))
-    #names(result) <- c("Country","Year", config$input$csvs[i])
+    #data[[i]] <- setNames(as.data.frame.table(as.matrix(data[[i]][-1])),c("Country","Year",config$input$csvs[i]))
+    #names(data[[i]]) <- c("country","Year",config$input$csvs[i])
+    name <- config$input$csvs[[i]]
+    data[[i]] = melt(data[[i]], id.vars='country', variable.name = 'Year',value.name = name, factorsAsStrings = FALSE)
     print(i)
   }
   
   #merging reshaped dataframes to form final one
   print('merging')
-  final_df <- data[[1]]
-  for (i in 2:length(data)){
-    final_df <- merge(final_df, data[[i]], by ="Country", all= TRUE)
-    print(i)
-  }
+  #final_df <- data[[1]]
+  #for (i in 2:length(data)){
+  #  final_df <- merge(final_df, data[[i]], by ="country", all= TRUE)
+  #  print(i)
+  #}
+  final_df <- Reduce(function(d1, d2) merge(d1, d2, by = c('country','Year'), all.x = TRUE),  data)
+  final_df$Year <- gsub("X","",final_df$Year)
   return (final_df)
 }
 
@@ -52,11 +56,11 @@ data <- list(murdered_women, population)
 
 #Reshaping options, both work here but reshape formula doesn't in the function
 # with reshape method the countries appear by name
-setNames(as.data.frame.table(as.matrix(population)),c("Country","Year", 'population'))
-reshape(data[[2]], idvar="country", varying=-1, direction="long", sep="")
+head(setNames(as.data.frame.table(as.matrix(population)),c("Country","Year", 'population')))
+head(reshape(data[[2]], idvar="country", varying=-1, direction="long", sep=""))
 
 ######   Prueba  ######
-
+library(reshape2)
 x <- preproceso(data, config)
 dim(x)
 head(x)
