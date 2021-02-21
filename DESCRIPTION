@@ -1,0 +1,16 @@
+Package: GapMinderPredict
+Title: Predict Data From GapMinder
+Version: 0.1
+Authors@R: person("Antonio", "Leal", email = "antonio.leal.dev@gmail.com",
+                  role = c("aut"))
+           person("Juan", "Guerrero", email = "juanige94@gmail.com",
+                  role = c("aut"))
+           person("Xeles", "Rodríguez", email = "ma.rguezvi@gmail.com",
+                  role = c("aut"))
+           person("María", "Cagigas", email = "mariacagigas.s@gmail.com",
+                  role = c("aut"))
+Description: Predict a concret data from a dataframe with countries and year as index like csv of GapMinder.
+Depends: R (>= 3.1.0)
+License: No license
+LazyData: true
+RoxygenNote: 7.1.1

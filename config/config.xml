@@ -1,11 +1,6 @@
 <config>
   <input>
-    <csvs>
-      <csv1>PIB.csv</csv2>
-      <csv2>population.csv</csv3>
-      <csv3>babies_per_woman.csv</csv4>
-      <csv4>murdered_women.csv</csv4>
-    </csvs>
+    <csvs>PIB.csv,population.csv,babies_per_woman.csv,murdered_women.csv</csvs>
     <sep>,</sep>
   </input>
   <countries>
@@ -21,6 +16,6 @@
   <target>murdered_women</target>
   <to_predict>
     <country>Australia</country>
-    <year>2005</yeart>
+    <year>2005</year>
   </to_predict>
 </config>
