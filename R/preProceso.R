@@ -11,7 +11,7 @@
 library(tidyverse)
 library(reshape2)
 
-preproceso <- function(data, config){
+preProcesarDatos <- function(data, config){
   #select countries from dataframes
   countries <- strsplit(config$countries,",")
   print('countries')
@@ -25,8 +25,9 @@ preproceso <- function(data, config){
   print('reshape')
   csv <- strsplit(config$input$csvs,",")
   for (i in 1:length(data)){
-    name <- csv[[1]][i]
+    name <- csv[[i]][1]
     name <- gsub(".csv","",name)
+    print(name)
     data[[i]] = melt(data[[i]], id.vars='country', variable.name = 'Year',value.name = name, factorsAsStrings = FALSE)
     print(i)
   }

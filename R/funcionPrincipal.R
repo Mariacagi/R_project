@@ -12,7 +12,7 @@
 # Para que funcione nuestro path lo igualamos a getwd para que recoja la carpeta madre R_project
 path <- getwd()
 
-prediccionDatos <- function(path){
+funcionPrincipal <- function(path){
 
   # Hacemos un tryCatch para ver si hay error, en qué funcion.
   

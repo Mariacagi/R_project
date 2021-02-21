@@ -12,7 +12,7 @@
 leerDatos <- function(config, path){
 
 #pathDatos hasta el csv: añado "data/" al path y el nombre del csv de la etiqueta name del xml
-  pathDatos <- paste0(path, "data/", config$input$name)
+  pathDatos <- paste0(path, "/data/", config$input$csvs)
   
   browser()
 
@@ -26,6 +26,7 @@ leerDatos <- function(config, path){
     for (i in pathDatos){
       
       filename <- strsplit(basename(i),'.csv')
+      #filename <- strsplit(basename(i),',')
       
       filenames <- c(filenames, filename)
     }
@@ -33,8 +34,9 @@ leerDatos <- function(config, path){
     list_df <- c()
     
     for (i in pathDatos){
-      datos <-data.table::fread(pathDatos, sep = config$input$sep, encoding = 'UTF-8',
-                                data.table = FALSE)
+      print(i)
+      datos <-data.table::fread(i, sep = config$input$sep, encoding = 'UTF-8',
+                                data.table = FALSE, header = TRUE)
 
       list_df[[length(list_df) + 1]] <- datos}
     
@@ -59,8 +61,8 @@ leerDatos <- function(config, path){
     
   }
 #si no hay errores, devolver el dataframe 'datos'  
-  return(datos)
-  
+  #return(datos)
+  return(list_df)
 }
 
 
