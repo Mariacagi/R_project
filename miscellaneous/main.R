@@ -5,7 +5,10 @@ lapply(c("dummies", "logging", "xgboost", "XML"), require, character.only = TRUE
 
 # Para saber la carpeta en la que estas en el path. 
   # En este caso ya estamos en la carpeta madre, R_project, por tanto no es necesario subir a otra carpeta.
-path <- getwd()
+path1 <- getwd()
+path <- paste0(path1, "/")
+
+setwd(path)
 
 
 #List files nos devuelve los archivos dentro del directorio.
@@ -21,3 +24,4 @@ funcionPrincipal(path)
 
 #SALIR DEL DEBUG
 undebug(funcionPrincipal)
+
