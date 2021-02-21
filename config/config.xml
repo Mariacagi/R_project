@@ -3,16 +3,7 @@
     <csvs>PIB.csv,population.csv,babies_per_woman.csv,murdered_women.csv</csvs>
     <sep>,</sep>
   </input>
-  <countries>
-    <count1>Belgium</count1>
-    <count2>Nigeria</count2>
-    <count3>Ireland</count3>
-    <count4>Australia</count4>
-  </countries>
-  <years>
-    <start>1970</start>
-    <end>2018</end>
-  </years>
+  <countries>Belgium,Nigeria,Ireland,Australia</countries>
   <target>murdered_women</target>
   <to_predict>
     <country>Australia</country>
