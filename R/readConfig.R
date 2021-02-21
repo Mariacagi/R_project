@@ -46,11 +46,9 @@ validateConfig <- function(config){
   
   configNode <- identical(names(config), c("input", "countries", "years", "target", "to_predict"))
   inputNode <- identical(names(config$input), c("csvs", "sep"))
-  yearsNode <- identical(names(config$columnas$fechas), c("start", "end"))
   predictNode <- identical(names(config$columnas$mails), c("country", "year"))  
   
-  nodes <- c("configNode" = configNode, "inputNode" = inputNode, "yearsNode" = yearsNode, 
-             "predictNode" = predictNode)
+  nodes <- c("configNode" = configNode, "inputNode" = inputNode, "predictNode" = predictNode)
   
   check <- all(nodes)
   
