@@ -26,7 +26,7 @@ generarOutput <- function(output, config, path){
   
   tryCatch(expr = {
     
-    write.csv(output$prediccion, file = nombreArchivo, sep = config$input$sep,
+    write.csv(output, file = nombreArchivo, sep = config$input$sep,
               row.names = FALSE)
     
   }, error = function(e){
@@ -37,16 +37,16 @@ generarOutput <- function(output, config, path){
   
   # Esta parte guarda el modelo el la carpeta output en modo rds
     # Coge de la lista output del archivo generarModelo.R el segundo elemento, es decir, modelo
-  nombreArchivo <- paste0(path, "output/modelo.rds")
+  #nombreArchivo <- paste0(path, "output/modelo.rds")
   
-  tryCatch(expr = {
+  #tryCatch(expr = {
     
-    saveRDS(output$modelo, file = nombreArchivo)
+  #  saveRDS(output$modelo, file = nombreArchivo)
     
-  }, error = function(e){
+  #}, error = function(e){
     
-    logerror("Ha fallado el guardado del modelo!!", logger = 'log')
+  #  logerror("Ha fallado el guardado del modelo!!", logger = 'log')
     
-  })
+  #})
   
 }

@@ -6,11 +6,12 @@
 #' @import methods
 #'
 #' @examples
-leerConfig <- function(){
+leerConfig <- function(path){
   
   library(XML)
   
-  configPath <- paste0(getwd(), "config/config.xml")
+  configPath <- paste0(path, "/config/config.xml")
+  print(configPath)
   
   tryCatch(expr = {
                     library("methods")
@@ -44,9 +45,9 @@ leerConfig <- function(){
 #' @examples
 validateConfig <- function(config){
   
-  configNode <- identical(names(config), c("input", "countries", "years", "target", "to_predict"))
+  configNode <- identical(names(config), c("input", "countries", "target", "to_predict"))
   inputNode <- identical(names(config$input), c("csvs", "sep"))
-  predictNode <- identical(names(config$columnas$mails), c("country", "year"))  
+  predictNode <- identical(names(config$to_predict), c("country", "year"))  
   
   nodes <- c("configNode" = configNode, "inputNode" = inputNode, "predictNode" = predictNode)
   
